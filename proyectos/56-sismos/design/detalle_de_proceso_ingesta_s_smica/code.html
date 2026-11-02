@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f6","on-tertiary-container":"#004e34","on-secondary-container":"#a8afff","on-surface":"#dee2f6","on-surface-variant":"#bdc8d1","surface-container-lowest":"#090e1c","tertiary":"#56e5a9","outline-variant":"#3e484f","surface-container-low":"#161b2a","primary":"#8ed5ff","secondary":"#bdc2ff","inverse-surface":"#dee2f6","surface-container-high":"#252a39","on-primary-fixed-variant":"#004c69","error-container":"#93000a","primary-fixed-dim":"#7bd0ff","tertiary-container":"#30c88f","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed":"#002113","secondary-fixed-dim":"#bdc2ff","background":"#0e1321","primary-container":"#38bdf8","surface-variant":"#303444","on-primary":"#00354a","on-primary-fixed":"#001e2c","on-secondary":"#131e8c","on-error":"#690005","on-secondary-fixed-variant":"#2f3aa3","inverse-on-surface":"#2b303f","surface-tint":"#7bd0ff","surface-container":"#1a1f2e","on-primary-container":"#004965","secondary-container":"#2f3aa3","tertiary-fixed":"#6ffbbe","surface":"#0e1321","surface-dim":"#0e1321","error":"#ffb4ab","surface-container-highest":"#303444","inverse-primary":"#00668a","outline":"#87929a","primary-fixed":"#c4e7ff","on-tertiary-fixed-variant":"#005236","on-secondary-fixed":"#000767","on-tertiary":"#003824","surface-bright":"#343948","secondary-fixed":"#e0e0ff","on-error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-tablet":"1.5rem","space-lg":"1rem","margin":"1rem","space-md":"0.75rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"1.5rem","gutter-tablet":"1rem","gutter":"0.75rem"},"fontFamily":{"headline-xl-mobile":["Space Grotesk"],"headline-xl":["Space Grotesk"],"data-mono-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"data-display":["Space Grotesk"],"label-mono-sm":["JetBrains Mono"],"data-mono-lg":["JetBrains Mono"],"body-sm":["Inter"]},"fontSize":{"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"data-display":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-mono-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"data-mono-lg":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-xl z-50 flex flex-col justify-between p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><span class="material-symbols-outlined text-primary text-[28px]">radar</span><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-on-surface leading-none">SISMOS</span><span class="font-label-mono-sm text-label-mono-sm text-outline uppercase tracking-wider">CENAPRED / SASMEX CORE</span></div></div><div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Enlace SeedLink</span><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span></span></div><div class="flex items-baseline justify-between"><span class="font-data-mono-md text-data-mono-md text-tertiary">ACTIVO 100 Hz</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">LAT: 142ms</span></div></div><div class="flex flex-col gap-space-xs"><span class="px-space-xs font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Navegación Táctica</span><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-md"><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="dashboard-tiempo-real" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">grid_view</span>Dashboard - Tiempo Real</a><a aria-current="page" class="flex items-center px-space-md py-space-sm rounded-xl transition-all bg-primary-container text-on-primary-container font-headline-md" data-path="detalle-de-proceso" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">hub</span>Detalle de Proceso</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="historial-y-bitacora" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">history_edu</span>Historial y Bitácora</a></nav></div><div class="flex flex-col gap-space-xs"><span class="px-space-xs font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Modo de Vigilancia</span><div class="bg-surface-container p-space-xs rounded-xl flex flex-col gap-space-xs"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface-container-high rounded"><span class="font-data-mono-md text-data-mono-md text-primary">AUTO-TRIANGULACIÓN</span><span class="material-symbols-outlined text-primary text-[16px]">lock</span></div><div class="flex items-center justify-between px-space-sm py-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">UMBRAL ALERTA</span><span class="font-data-mono-md text-data-mono-md text-on-surface">M ≥ 5.0</span></div></div></div></div><div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-mono-sm text-label-mono-sm uppercase text-outline">Telemetría Red</span><span class="font-data-mono-md text-data-mono-md text-tertiary">128/128 NODOS</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-full"></div></div><div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface-variant"><span>Buffer PGA</span><span>Nominal</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-xl"><span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">Modo</span><span class="font-data-mono-md text-data-mono-md text-primary">MONITOREO CONTINUO</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">arrow_drop_down</span></div><div class="hidden xl:flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="h-2 w-2 rounded-full bg-tertiary"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">ANILLO SÍSMICO ACTIVO</span></div><div class="flex items-center gap-space-xs"><span class="h-2 w-2 rounded-full bg-primary"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">P/S DETECTOR V3</span></div></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl"><span class="material-symbols-outlined text-outline text-[18px]">schedule</span><div class="flex flex-col items-end"><span class="font-data-mono-md text-data-mono-md text-on-surface tracking-wider leading-none">14:26:08 UTC</span><span class="font-label-mono-sm text-label-mono-sm text-outline leading-none">2025-05-18</span></div></div><div class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span></div><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col items-end"><span class="font-body-md text-body-md text-on-surface leading-tight font-medium">Dra. V. Morales</span><span class="font-label-mono-sm text-label-mono-sm text-outline">OFICIAL EN GUARDIA</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 w-full bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<div class="p-space-xl flex flex-col gap-space-lg w-full">
+<!-- Encabezado de Proceso & Estado de Pipeline -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-xs z-10">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider text-outline px-space-xs py-0.5 bg-surface-container rounded">DSP-PIPELINE // SASMEX-01</span>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 bg-tertiary-container/30 text-tertiary rounded-full font-label-mono-sm text-label-mono-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-data-mono-md text-data-mono-md font-semibold">EJECUTANDO OK</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">sync_saved_locally</span>
+            SeedLink 100Hz / MQTT v5.0 Broker Activo
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Pipeline #ING-8924: Algoritmo Automático de Picking de Ondas P y S
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-md">
+<span>Inferencia AR-Picker v4.2 + Filtro de Kurtosis Dinámico</span>
+<span class="text-outline">•</span>
+<span>Buffer: <strong class="text-on-surface font-data-mono-md text-data-mono-md font-semibold">60s Circular</strong></span>
+<span class="text-outline">•</span>
+<span>Formato: <strong class="text-on-surface font-data-mono-md text-data-mono-md font-semibold">MiniSEED Steim-2</strong></span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm z-10">
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl flex flex-col items-end">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">LATENCIA CÓMPUTO</span>
+<span class="font-data-mono-lg text-data-mono-lg text-tertiary">420 ms</span>
+</div>
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl flex flex-col items-end">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">TIMESTAMP ORIGEN</span>
+<span class="font-data-mono-lg text-data-mono-lg text-primary">14:25:52.180</span>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface p-space-sm rounded-xl transition-colors shadow-sm flex items-center justify-center" title="Recargar Stream">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+</button>
+</div>
+</section>
+<!-- Visualizador Multieje Triaxial (3C) Ancho Completo -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<!-- Barra de Configuración de Filtros y FFT -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container p-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="material-symbols-outlined text-primary text-[20px] ml-space-xs">tune</span>
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline mr-space-xs">DSP FILTROS:</span>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-sm py-1 rounded">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">BP BUTTERWORTH:</span>
+<span class="font-data-mono-md text-data-mono-md text-primary font-semibold">0.5 - 12.0 Hz</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline text-[9px]">(4 polos)</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-sm py-1 rounded">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">AMPLITUD:</span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface">1.0x (Normalizada)</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-sm py-1 rounded">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">VENTANA FFT:</span>
+<span class="font-data-mono-md text-data-mono-md text-secondary">Hanning 2048 pts</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-container-high rounded px-1">
+<button class="p-1 hover:text-primary transition-colors" title="Alejar Zoom">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<span class="font-data-mono-md text-data-mono-md px-2 text-outline">10s/div</span>
+<button class="p-1 hover:text-primary transition-colors" title="Acercar Zoom">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary font-headline-md px-space-sm py-1 rounded flex items-center gap-1 hover:opacity-95 transition-opacity text-[13px] tracking-wide">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+            Espectrograma 3C
+          </button>
+</div>
+</div>
+<!-- Leyenda y Métricas Directas PGA -->
+<div class="flex items-center justify-between text-body-sm px-space-xs">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-2">
+<span class="w-3 h-0.5 bg-tertiary"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">Arribo P (00:12s) - Compresional</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-0.5 bg-secondary-fixed"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">Arribo S (00:27s) - Cizalle</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline-variant">Ts - Tp = 15.0s (Δ ~120 km)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">ACELERACIÓN PICO (PGA):</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded font-data-mono-md text-data-mono-md text-error font-bold">4.8 cm/s² (Gal)</span>
+</div>
+</div>
+<!-- Lienzo Sismográfico Vectorial 3 Canales con Marcadores Verticales -->
+<div class="relative bg-surface-container-lowest rounded-xl p-space-md overflow-hidden flex flex-col gap-3">
+<!-- Línea Vertical de Fase P (t = 00:12s -> 20% del contenedor) -->
+<div class="absolute top-0 bottom-0 left-[20%] w-[1px] bg-tertiary z-20 pointer-events-none flex flex-col justify-between">
+<div class="bg-tertiary text-on-tertiary px-1 py-0.5 rounded text-[10px] font-data-mono-md font-bold tracking-wider shadow -translate-x-1/2 w-max">
+            P-WAVE ARRIVAL @ 00:12.000s
+          </div>
+<div class="bg-tertiary text-on-tertiary px-1 py-0.5 rounded text-[9px] font-label-mono-sm -translate-x-1/2 w-max mb-1">
+            Pol: UP (+) | CF: 0.94
+          </div>
+</div>
+<!-- Línea Vertical de Fase S (t = 00:27s -> 45% del contenedor) -->
+<div class="absolute top-0 bottom-0 left-[45%] w-[1px] bg-secondary-fixed z-20 pointer-events-none flex flex-col justify-between">
+<div class="bg-secondary-fixed text-surface-container-lowest px-1 py-0.5 rounded text-[10px] font-data-mono-md font-bold tracking-wider shadow -translate-x-1/2 w-max">
+            S-WAVE ARRIVAL @ 00:27.000s
+          </div>
+<div class="bg-secondary-fixed text-surface-container-lowest px-1 py-0.5 rounded text-[9px] font-label-mono-sm -translate-x-1/2 w-max mb-1">
+            PGA 4.8 cm/s² | CF: 0.89
+          </div>
+</div>
+<!-- Componente Z (Vertical) -->
+<div class="relative bg-surface-container/60 rounded p-space-sm flex flex-col">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="bg-primary/20 text-primary px-1.5 py-0.2 rounded font-data-mono-md text-data-mono-md font-bold">BHZ</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Componente Vertical (Z) - Sensor Streckeisen STS-2</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md text-tertiary">+1,842 µm/s</span>
+</div>
+<div class="w-full h-24 overflow-hidden relative">
+<svg class="w-full h-full text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 1000 100">
+<!-- Grid horizontal de referencia -->
+<line stroke="currentColor" stroke-dasharray="2 4" stroke-opacity="0.15" x1="0" x2="1000" y1="50" y2="50"></line>
+<!-- Traza sísmica con arribo claro en x=200 (Fase P) y x=450 (Fase S) -->
+<path d="M 0,50 L 50,51 L 90,49 L 140,51 L 180,50 
+                       L 200,50 L 205,32 L 210,68 L 215,38 L 222,60 L 230,42 L 245,56 L 260,47 L 280,52 L 310,48 L 350,51 L 400,49 L 430,52 
+                       L 450,50 L 455,18 L 462,82 L 470,22 L 478,76 L 485,30 L 495,68 L 510,38 L 530,62 L 560,42 L 600,58 L 650,45 L 720,53 L 800,49 L 900,50 L 1000,50" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Componente NS (Norte-Sur) -->
+<div class="relative bg-surface-container/60 rounded p-space-sm flex flex-col">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="bg-secondary/20 text-secondary px-1.5 py-0.2 rounded font-data-mono-md text-data-mono-md font-bold">BHN</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Componente Norte-Sur (NS)</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md text-secondary">+3,120 µm/s</span>
+</div>
+<div class="w-full h-24 overflow-hidden relative">
+<svg class="w-full h-full text-secondary" fill="none" preserveaspectratio="none" viewbox="0 0 1000 100">
+<line stroke="currentColor" stroke-dasharray="2 4" stroke-opacity="0.15" x1="0" x2="1000" y1="50" y2="50"></line>
+<!-- S-wave predominante en componente horizontal -->
+<path d="M 0,50 L 60,49 L 120,51 L 180,50 
+                       L 200,50 L 208,44 L 215,55 L 225,47 L 240,53 L 270,49 L 320,51 L 380,49 L 440,50 
+                       L 450,50 L 454,12 L 460,88 L 468,10 L 476,85 L 484,20 L 494,78 L 506,26 L 522,70 L 545,34 L 575,64 L 620,40 L 680,56 L 760,47 L 850,52 L 1000,50" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Componente EW (Este-Oeste) -->
+<div class="relative bg-surface-container/60 rounded p-space-sm flex flex-col">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="bg-tertiary/20 text-tertiary px-1.5 py-0.2 rounded font-data-mono-md text-data-mono-md font-bold">BHE</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Componente Este-Oeste (EW)</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md text-tertiary-fixed">+2,910 µm/s</span>
+</div>
+<div class="w-full h-24 overflow-hidden relative">
+<svg class="w-full h-full text-tertiary" fill="none" preserveaspectratio="none" viewbox="0 0 1000 100">
+<line stroke="currentColor" stroke-dasharray="2 4" stroke-opacity="0.15" x1="0" x2="1000" y1="50" y2="50"></line>
+<path d="M 0,50 L 70,51 L 130,49 L 195,50 
+                       L 200,50 L 206,45 L 214,54 L 225,48 L 245,52 L 290,49 L 360,51 L 435,50 
+                       L 450,50 L 456,15 L 463,84 L 472,16 L 480,82 L 490,24 L 502,74 L 518,32 L 538,66 L 565,38 L 600,60 L 650,44 L 730,54 L 840,49 L 1000,50" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Escala y Ticks de Tiempo Monospace -->
+<div class="flex justify-between items-center px-1 font-label-mono-sm text-label-mono-sm text-outline pt-1">
+<span>00:00s</span>
+<span>00:10s</span>
+<span>00:20s</span>
+<span>00:30s</span>
+<span>00:40s</span>
+<span>00:50s</span>
+<span>00:60s (T_ACTUAL)</span>
+</div>
+</div>
+</section>
+<!-- Grid Inferior (2 Columnas) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg w-full">
+<!-- Columna 1: Matriz de Parámetros Geofísicos y Solución Preliminar -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md justify-between">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">architecture</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Solución Preliminar de Ingesta</h2>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase bg-surface-container px-2 py-0.5 rounded">LOC-SOLVER: HYPO71</span>
+</div>
+<div class="bg-surface-container rounded-xl p-space-md flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">MAGNITUD ESTIMADA (ML)</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-display text-data-display text-on-surface font-bold">5.4</span>
+<span class="font-data-mono-md text-data-mono-md text-outline">± 0.2 ML</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Clasificación: Moderado (Escala Richter Local)</span>
+</div>
+<div class="w-16 h-16 rounded-full bg-secondary-container/50 flex flex-col items-center justify-center text-center">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary-fixed">NIVEL</span>
+<span class="font-data-mono-lg text-data-mono-lg text-primary font-bold">MOD</span>
+</div>
+</div>
+<!-- Matriz Key-Value de Parámetros -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm font-data-mono-md text-data-mono-md">
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">PROFUNDIDAD FOCAL</span>
+<span class="text-on-surface font-bold mt-1">23.4 km</span>
+<span class="font-body-sm text-body-sm text-tertiary">Corteza Cont.</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">LATITUD</span>
+<span class="text-on-surface font-bold mt-1">30.120° S</span>
+<span class="font-body-sm text-body-sm text-outline">± 0.015°</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">LONGITUD</span>
+<span class="text-on-surface font-bold mt-1">71.850° W</span>
+<span class="font-body-sm text-body-sm text-outline">± 0.018°</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">ELIPSE INCERTIDUMBRE</span>
+<span class="text-primary font-bold mt-1">± 1.8 km</span>
+<span class="font-body-sm text-body-sm text-outline">Semi-eje 95%</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">GAP AZIMUTAL</span>
+<span class="text-on-surface font-bold mt-1">72°</span>
+<span class="font-body-sm text-body-sm text-tertiary">Excelente (<120°)</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">RESIDUO RMS</span>
+<span class="text-tertiary font-bold mt-1">0.18 s</span>
+<span class="font-body-sm text-body-sm text-outline">Ajuste Óptimo</span>
+</div>
+</div>
+<div class="bg-surface-container-high/40 p-space-sm rounded-xl flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Epicentro referencial aproximado a 42 km al SO de Coquimbo, Región de Coquimbo.</span>
+</div>
+</section>
+<!-- Columna 2: Diagnóstico y Salud de Estaciones Participantes -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md justify-between">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">sensors</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Red Sísmica Concurrente</h2>
+</div>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 bg-surface-container rounded font-label-mono-sm text-label-mono-sm">
+<span class="text-tertiary font-semibold font-data-mono-md text-data-mono-md">3 de 4</span>
+<span class="text-outline">SINCRONIZADAS</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Estación 1: VALPO -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-[15px] font-semibold text-on-surface">EST-VALPO</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Valparaíso, Centro Costero</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">Lat: 80ms</span>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">SNR: 28 dB</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-mono-sm text-label-mono-sm font-semibold bg-tertiary-container/30 text-tertiary">
+                OK
+              </span>
+</div>
+</div>
+<!-- Estación 2: LA-SERENA -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-[15px] font-semibold text-on-surface">EST-LA-SERENA</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">La Serena / Observatorio Tololo</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">Lat: 110ms</span>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">SNR: 24 dB</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-mono-sm text-label-mono-sm font-semibold bg-tertiary-container/30 text-tertiary">
+                OK
+              </span>
+</div>
+</div>
+<!-- Estación 3: PICHILEMU -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">warning</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-[15px] font-semibold text-on-surface">EST-PICHILEMU</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Pichilemu, Región de O'Higgins</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-secondary-fixed">Pérdida: 14%</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Jitter: 42ms</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-mono-sm text-label-mono-sm font-semibold bg-secondary-container text-secondary-fixed">
+                ALERTA
+              </span>
+</div>
+</div>
+<!-- Estación 4: CONCEPCION -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px]">error</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-[15px] font-semibold text-on-surface">EST-CONCEPCION</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Concepción, Universidad</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-error">Timeout >5s</span>
+<span class="font-label-mono-sm text-label-mono-sm text-error">Sensor Desconectado</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-mono-sm text-label-mono-sm font-semibold bg-error-container text-error">
+                FALLA
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-outline pt-space-xs">
+<span>QoS Agregado: <strong class="text-on-surface">78.5%</strong></span>
+<span class="font-label-mono-sm text-label-mono-sm">Algoritmo de rechazo automático activo</span>
+</div>
+</section>
+</div>
+<!-- Barra de Acciones de Gabinete Técnico -->
+<section class="bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified_user</span>
+<span class="font-label-mono-sm text-label-mono-sm">Sesión Segura Analista | Token: #AUTH-7731-VAL</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Re-procesar Filtro Butterworth -->
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-md py-space-sm rounded-xl font-headline-md text-body-md flex items-center gap-2 transition-all" id="btn-reprocess">
+<span class="material-symbols-outlined text-[18px] text-primary">filter_alt</span>
+<span>Re-procesar Filtro Butterworth</span>
+</button>
+<!-- Exportar MiniSEED / SAC -->
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-md py-space-sm rounded-xl font-headline-md text-body-md flex items-center gap-2 transition-all" id="btn-export">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Exportar MiniSEED / SAC</span>
+</button>
+<!-- Bitácora de Ingesta -->
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-md py-space-sm rounded-xl font-headline-md text-body-md flex items-center gap-2 transition-all" id="btn-logs">
+<span class="material-symbols-outlined text-[18px] text-outline">description</span>
+<span>Bitácora de Ingesta</span>
+</button>
+<!-- Validación Manual por Analista -->
+<button class="bg-primary text-on-primary font-headline-md text-body-md px-space-lg py-space-sm rounded-xl flex items-center gap-2 shadow-lg hover:brightness-105 active:scale-95 transition-all" id="btn-validate">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Validación Manual por Analista</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Toast Notificador de Microinteracción -->
+<div class="fixed bottom-6 right-6 bg-surface-container-highest text-on-surface px-space-md py-space-sm rounded-xl shadow-2xl transition-all transform translate-y-20 opacity-0 flex items-center gap-space-sm pointer-events-none z-50" id="interactive-toast">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span class="font-data-mono-md text-data-mono-md" id="toast-message">Operación ejecutada con éxito</span>
+</div>
+</div>
+<script>
+  (function() {
+    const toast = document.getElementById('interactive-toast');
+    const toastMsg = document.getElementById('toast-message');
+
+    function notify(text) {
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = text;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3200);
+    }
+
+    const btnReprocess = document.getElementById('btn-reprocess');
+    if (btnReprocess) {
+      btnReprocess.addEventListener('click', () => {
+        notify('Filtro Butterworth (0.5 - 12.0 Hz) recalculado para canales 3C');
+      });
+    }
+
+    const btnExport = document.getElementById('btn-export');
+    if (btnExport) {
+      btnExport.addEventListener('click', () => {
+        notify('Generando archivo MiniSEED (#ING-8924_3C.mseed) para descarga');
+      });
+    }
+
+    const btnValidate = document.getElementById('btn-validate');
+    if (btnValidate) {
+      btnValidate.addEventListener('click', () => {
+        notify('Picking validado por Analista Dra. V. Morales. Encolado a CSN');
+      });
+    }
+
+    const btnLogs = document.getElementById('btn-logs');
+    if (btnLogs) {
+      btnLogs.addEventListener('click', () => {
+        notify('Bitácora SeedLink: 12,410 paquetes leídos sin pérdida de secuencia');
+      });
+    }
+  })();
+</script></main></div></body></html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f6","on-tertiary-container":"#004e34","on-secondary-container":"#a8afff","on-surface":"#dee2f6","on-surface-variant":"#bdc8d1","surface-container-lowest":"#090e1c","tertiary":"#56e5a9","outline-variant":"#3e484f","surface-container-low":"#161b2a","primary":"#8ed5ff","secondary":"#bdc2ff","inverse-surface":"#dee2f6","surface-container-high":"#252a39","on-primary-fixed-variant":"#004c69","error-container":"#93000a","primary-fixed-dim":"#7bd0ff","tertiary-container":"#30c88f","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed":"#002113","secondary-fixed-dim":"#bdc2ff","background":"#0e1321","primary-container":"#38bdf8","surface-variant":"#303444","on-primary":"#00354a","on-primary-fixed":"#001e2c","on-secondary":"#131e8c","on-error":"#690005","on-secondary-fixed-variant":"#2f3aa3","inverse-on-surface":"#2b303f","surface-tint":"#7bd0ff","surface-container":"#1a1f2e","on-primary-container":"#004965","secondary-container":"#2f3aa3","tertiary-fixed":"#6ffbbe","surface":"#0e1321","surface-dim":"#0e1321","error":"#ffb4ab","surface-container-highest":"#303444","inverse-primary":"#00668a","outline":"#87929a","primary-fixed":"#c4e7ff","on-tertiary-fixed-variant":"#005236","on-secondary-fixed":"#000767","on-tertiary":"#003824","surface-bright":"#343948","secondary-fixed":"#e0e0ff","on-error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-tablet":"1.5rem","space-lg":"1rem","margin":"1rem","space-md":"0.75rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"1.5rem","gutter-tablet":"1rem","gutter":"0.75rem"},"fontFamily":{"headline-xl-mobile":["Space Grotesk"],"headline-xl":["Space Grotesk"],"data-mono-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"data-display":["Space Grotesk"],"label-mono-sm":["JetBrains Mono"],"data-mono-lg":["JetBrains Mono"],"body-sm":["Inter"]},"fontSize":{"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"data-display":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-mono-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"data-mono-lg":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-xl z-50 flex flex-col justify-between p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><span class="material-symbols-outlined text-primary text-[28px]">radar</span><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-on-surface leading-none">SISMOS</span><span class="font-label-mono-sm text-label-mono-sm text-outline uppercase tracking-wider">CENAPRED / SASMEX CORE</span></div></div><div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Enlace SeedLink</span><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span></span></div><div class="flex items-baseline justify-between"><span class="font-data-mono-md text-data-mono-md text-tertiary">ACTIVO 100 Hz</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">LAT: 142ms</span></div></div><div class="flex flex-col gap-space-xs"><span class="px-space-xs font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Navegación Táctica</span><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-md"><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="dashboard-tiempo-real" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">grid_view</span>Dashboard - Tiempo Real</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="detalle-de-proceso" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">hub</span>Detalle de Proceso</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="historial-y-bitacora" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">history_edu</span>Historial y Bitácora</a></nav></div><div class="flex flex-col gap-space-xs"><span class="px-space-xs font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Modo de Vigilancia</span><div class="bg-surface-container p-space-xs rounded-xl flex flex-col gap-space-xs"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface-container-high rounded"><span class="font-data-mono-md text-data-mono-md text-primary">AUTO-TRIANGULACIÓN</span><span class="material-symbols-outlined text-primary text-[16px]">lock</span></div><div class="flex items-center justify-between px-space-sm py-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">UMBRAL ALERTA</span><span class="font-data-mono-md text-data-mono-md text-on-surface">M ≥ 5.0</span></div></div></div></div><div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-mono-sm text-label-mono-sm uppercase text-outline">Telemetría Red</span><span class="font-data-mono-md text-data-mono-md text-tertiary">128/128 NODOS</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-full"></div></div><div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface-variant"><span>Buffer PGA</span><span>Nominal</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-xl"><span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">Modo</span><span class="font-data-mono-md text-data-mono-md text-primary">MONITOREO CONTINUO</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">arrow_drop_down</span></div><div class="hidden xl:flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="h-2 w-2 rounded-full bg-tertiary"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">ANILLO SÍSMICO ACTIVO</span></div><div class="flex items-center gap-space-xs"><span class="h-2 w-2 rounded-full bg-primary"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">P/S DETECTOR V3</span></div></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl"><span class="material-symbols-outlined text-outline text-[18px]">schedule</span><div class="flex flex-col items-end"><span class="font-data-mono-md text-data-mono-md text-on-surface tracking-wider leading-none">14:26:08 UTC</span><span class="font-label-mono-sm text-label-mono-sm text-outline leading-none">2025-05-18</span></div></div><div class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span></div><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col items-end"><span class="font-body-md text-body-md text-on-surface leading-tight font-medium">Dra. V. Morales</span><span class="font-label-mono-sm text-label-mono-sm text-outline">OFICIAL EN GUARDIA</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 w-full bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<div class="p-space-xl flex flex-col gap-space-lg">
+<!-- Header Section with Tactical Context & Mode Identifier -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-wider">REGISTRO SÍSMICO OFICIAL</span>
+<span class="text-outline-variant font-label-mono-sm">•</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">SISTEMA NACIONAL DE AUDITORÍA & SASMEX/CENAPRED</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Bitácora Oficial de Eventos y Alertas</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          Consola retrospectiva de validación sismotectónica, telemetría de aceleración pico (PGA) y auditoría cronológica de soluciones preliminares y revisadas.
+        </p>
+</div>
+<!-- Quick Action Group -->
+<div class="flex items-center gap-space-sm self-start xl:self-end">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors font-body-md text-body-md shadow-sm" id="btn-export-quick">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Descarga Rápida</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-primary text-on-primary font-headline-md text-headline-md tracking-normal shadow-sm hover:brightness-110 transition-all" id="btn-sync-live">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>Sincronizar Bitácora</span>
+</button>
+</div>
+</div>
+<!-- 1. Operational Filter Bar -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-md">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-space-md items-center">
+<!-- Time Window Selection -->
+<div class="xl:col-span-4 flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Ventana Temporal (UTC)</span>
+<div class="grid grid-cols-4 bg-surface-container-lowest p-1 rounded-xl">
+<button class="filter-time-btn py-space-xs text-center rounded-lg font-data-mono-md text-data-mono-md text-on-surface-variant hover:text-on-surface transition-colors" data-period="24h">24H</button>
+<button class="filter-time-btn py-space-xs text-center rounded-lg font-data-mono-md text-data-mono-md bg-surface-container-high text-primary transition-colors" data-period="7d">7 Días</button>
+<button class="filter-time-btn py-space-xs text-center rounded-lg font-data-mono-md text-data-mono-md text-on-surface-variant hover:text-on-surface transition-colors" data-period="30d">30 Días</button>
+<button class="filter-time-btn py-space-xs text-center rounded-lg font-data-mono-md text-data-mono-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center gap-1" data-period="custom">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> Rango
+            </button>
+</div>
+</div>
+<!-- Magnitude Filter Chips -->
+<div class="xl:col-span-5 flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Filtro de Magnitud</span>
+<div class="flex flex-wrap gap-space-xs">
+<button class="filter-mag-btn px-space-md py-space-xs rounded-xl bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm flex items-center gap-1.5 transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Todas (184)
+            </button>
+<button class="filter-mag-btn px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant font-label-mono-sm text-label-mono-sm flex items-center gap-1.5 transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              M ≥ 3.0 (Sensibles)
+            </button>
+<button class="filter-mag-btn px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant font-label-mono-sm text-label-mono-sm flex items-center gap-1.5 transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
+              M ≥ 4.5 (Alerta Media)
+            </button>
+<button class="filter-mag-btn px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant font-label-mono-sm text-label-mono-sm flex items-center gap-1.5 transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ef4444]"></span>
+              M ≥ 6.0 (Crítica)
+            </button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="xl:col-span-3 flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Identificador o Región</span>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-space-md py-space-xs rounded-xl focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-outline-variant transition-all" id="filter-search" placeholder="Ej. Coquimbo, EST-CONC, 202505..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Secondary filter bar row: Validation & Range input -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline">Estado Auditoría:</span>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-0.5 rounded-lg">
+<button class="px-space-sm py-0.5 rounded text-on-surface bg-surface-container-high font-label-mono-sm text-label-mono-sm">Todos</button>
+<button class="px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm">Revisado Analista</button>
+<button class="px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm">Detección Automática</button>
+<button class="px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm">Descartada / Ruido</button>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>Logs Validados Criptográficamente (SHA-256)</span>
+</div>
+<button class="text-primary hover:underline font-label-mono-sm text-label-mono-sm flex items-center gap-0.5">
+<span>Restablecer Filtros</span>
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 2. KPI Summary Cards (Period) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Total Events -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Total Eventos Registrados</span>
+<span class="material-symbols-outlined text-primary text-[20px]">equalizer</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-data-display text-data-display text-on-surface">184</span>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">+12 vs. ciclo prev.</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span>Ventana activa</span>
+<span class="text-primary font-data-mono-md">100% catalogados</span>
+</div>
+</div>
+<!-- Max Event -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#ef4444]/10 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Evento Máximo del Periodo</span>
+<span class="material-symbols-outlined text-[#ef4444] text-[20px]">warning</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-data-display text-data-display text-[#ef4444] tracking-tight">Mw 6.2</span>
+<span class="px-space-xs py-0.5 rounded bg-[#93000a]/50 text-white font-label-mono-sm text-label-mono-sm uppercase">Alerta Roja</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="truncate">Coquimbo (Prof: 18 km)</span>
+<span class="font-data-mono-md text-on-surface">0.18 g PGA</span>
+</div>
+</div>
+<!-- Alert Latency -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-tertiary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Tiempo Medio Ingesta/Alerta</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">speed</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-data-display text-data-display text-tertiary">3.4 s</span>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary-fixed-dim">Target ≤ 4.0s</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span>Algoritmo P-Picker v4</span>
+<span class="font-data-mono-md text-on-surface">PGA < 0.2s</span>
+</div>
+</div>
+<!-- Network Operability -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-secondary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Operatividad de Red</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-data-display text-data-display text-on-surface">99.1%</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">127 / 128 Online</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="text-[#ef4444] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ef4444]"></span> 1 Falla Técnica
+          </span>
+<span class="font-data-mono-md text-primary">SLA Crítico OK</span>
+</div>
+</div>
+</div>
+<!-- 3. Full Chronological Log & Interactive Waveform Previews -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">table_chart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Registro Cronológico de Sismos y Alertas</h2>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-mono-sm text-label-mono-sm">Mostrando 5 de 184</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">tune</span> Columnas
+          </button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span> Expandir
+          </button>
+</div>
+</div>
+<!-- Desktop Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-mono-sm text-label-mono-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-lg">Timestamp UTC</th>
+<th class="py-space-sm px-space-md">Magnitud</th>
+<th class="py-space-sm px-space-md">Región / Referencia</th>
+<th class="py-space-sm px-space-md">Profundidad</th>
+<th class="py-space-sm px-space-md">Aceleración PGA</th>
+<th class="py-space-sm px-space-md">Nivel Alerta</th>
+<th class="py-space-sm px-space-md">Validación</th>
+<th class="py-space-sm px-space-md rounded-r-lg text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-transparent">
+<!-- Row 1: Coquimbo (Mw 6.2 - Critical) -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold">14:32:10.42</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">2025-05-18</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#ef4444] text-white font-data-mono-lg text-data-mono-lg font-bold shadow-[0_0_12px_rgba(239,68,68,0.45)]">
+<span>Mw 6.2</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Coquimbo, Chile</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">30.03°S 71.34°W • 42 km SO de La Serena</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">18 km</span>
+<span class="block font-label-mono-sm text-label-mono-sm text-outline">Superficial</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-mono-md text-data-mono-md text-[#ef4444] font-bold">0.18 g</span>
+<!-- Mini Waveform SVG -->
+<svg class="w-16 h-5 text-[#ef4444]" fill="none" viewbox="0 0 64 20">
+<path d="M0 10 L15 10 L18 8 L22 13 L26 4 L30 17 L34 2 L38 18 L42 6 L46 14 L50 9 L64 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">PGA Pico Red</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-[#93000a] text-white font-label-mono-sm text-label-mono-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">crisis_alert</span>
+                  ALERTA CRÍTICA
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-tertiary font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Validado (Dra. Morales)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Ver Trazas Sísmicas">
+<span class="material-symbols-outlined text-[18px]">show_chart</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Descargar GeoJSON">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Reporte Técnico">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Los Vilos (Mw 4.7 - Medium Alert) -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">11:15:04.18</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">2025-05-18</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#f59e0b] text-[#0A0F1D] font-data-mono-lg text-data-mono-lg font-bold">
+<span>Mw 4.7</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Los Vilos, Región de Coquimbo</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">31.91°S 71.51°W • Borde Costero</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">42 km</span>
+<span class="block font-label-mono-sm text-label-mono-sm text-outline">Intermedia</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-mono-md text-data-mono-md text-[#f59e0b] font-bold">2.1% g</span>
+<!-- Mini Waveform SVG -->
+<svg class="w-16 h-5 text-[#f59e0b]" fill="none" viewbox="0 0 64 20">
+<path d="M0 10 L20 10 L24 8 L27 12 L30 6 L33 14 L37 7 L40 12 L44 9 L64 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Intensidad Mercalli IV</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-[#f59e0b]/20 text-[#f59e0b] font-label-mono-sm text-label-mono-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">notification_important</span>
+                  ALERTA MEDIA
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-primary font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Solución Automática</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Ver Trazas Sísmicas">
+<span class="material-symbols-outlined text-[18px]">show_chart</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Descargar GeoJSON">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Reporte Técnico">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Costa Central (ML 3.2 - OK / Info) -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">09:40:12.87</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">2025-05-18</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10b981] text-[#0A0F1D] font-data-mono-lg text-data-mono-lg font-bold">
+<span>ML 3.2</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Costa Central, Valparaíso</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">33.02°S 71.65°W • Falla Local</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">12 km</span>
+<span class="block font-label-mono-sm text-label-mono-sm text-outline">Superficial</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-mono-md text-data-mono-md text-tertiary">< 0.5% g</span>
+<!-- Mini Waveform SVG -->
+<svg class="w-16 h-5 text-tertiary" fill="none" viewbox="0 0 64 20">
+<path d="M0 10 L25 10 L28 9 L31 11 L34 8 L37 12 L40 10 L64 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Inaudible</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-[#10b981]/20 text-tertiary font-label-mono-sm text-label-mono-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                  OK / INFO
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-tertiary font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+<span>Confirmado</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Ver Trazas Sísmicas">
+<span class="material-symbols-outlined text-[18px]">show_chart</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Descargar GeoJSON">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Reporte Técnico">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Sensor Failure (EST-CONCEPCION) -->
+<tr class="hover:bg-surface-container transition-colors group bg-[#93000a]/10">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">08:04:19.00</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">2025-05-18</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-highest text-outline font-data-mono-md text-data-mono-md">
+<span>N/A [ERR]</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-error">EST-CONCEPCION (Falla Telemetría)</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Estación Acelerográfica #044 • Pérdida SeedLink</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-data-mono-md text-data-mono-md text-outline">--</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-error">
+<span class="material-symbols-outlined text-[16px]">signal_disconnected</span>
+<span class="font-data-mono-md text-data-mono-md">TIMEOUT</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Ruido Gaussiano</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-[#ef4444] text-white font-label-mono-sm text-label-mono-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">sensors_off</span>
+                  FALLA SENSOR
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-error font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Descartado de Solución</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-1.5 rounded-lg bg-[#93000a] hover:bg-[#ef4444] text-white transition-colors" title="Diagnóstico de Nodo">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Log de Falla">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Calama (ML 3.8 - OK) -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">06:12:49.25</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">2025-05-18</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10b981] text-[#0A0F1D] font-data-mono-lg text-data-mono-lg font-bold">
+<span>ML 3.8</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Calama, Región de Antofagasta</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">22.45°S 68.92°W • Falla Precordillerana</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-data-mono-md text-data-mono-md text-on-surface">55 km</span>
+<span class="block font-label-mono-sm text-label-mono-sm text-outline">Intraplaca</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-mono-md text-data-mono-md text-tertiary">0.9% g</span>
+<!-- Mini Waveform SVG -->
+<svg class="w-16 h-5 text-tertiary" fill="none" viewbox="0 0 64 20">
+<path d="M0 10 L22 10 L25 8 L28 13 L31 7 L34 11 L37 9 L40 10 L64 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Aceleración Basal</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-[#10b981]/20 text-tertiary font-label-mono-sm text-label-mono-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                  OK
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-tertiary font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Confirmado</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Ver Trazas Sísmicas">
+<span class="material-symbols-outlined text-[18px]">show_chart</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Descargar GeoJSON">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Reporte Técnico">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Table Footer -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span>Registros por página:</span>
+<select class="bg-surface-container-lowest text-on-surface px-space-sm py-1 rounded-lg focus:outline-none border-none">
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+<span>Página 1 de 8</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm disabled:opacity-50" disabled="">
+            Anterior
+          </button>
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-high text-primary font-label-mono-sm text-label-mono-sm">
+            1
+          </button>
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm">
+            2
+          </button>
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm">
+            3
+          </button>
+<span class="text-outline">...</span>
+<button class="px-space-md py-space-xs rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm">
+            Siguiente
+          </button>
+</div>
+</div>
+</div>
+<!-- 4. Export & Audit Operations Module (Bento / High-Density Grid) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- Export Options Hub -->
+<div class="xl:col-span-8 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">ios_share</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Módulo de Exportación & Formatos Científicos</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Genere conjuntos de datos listos para ingestión en software analítico (Seisan, ObsPy, SAC) o para informes a autoridades de protección civil.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- GeoJSON -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-mono-sm text-label-mono-sm text-primary">GIS / WEB</span>
+<span class="material-symbols-outlined text-outline text-[18px]">public</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">GeoJSON Estructurado</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Epicentros, polígonos PGA y elipses de error.</p>
+</div>
+<button class="w-full mt-2 py-space-xs px-space-sm rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface font-data-mono-md text-data-mono-md transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>.geojson</span>
+</button>
+</div>
+<!-- Raw CSV -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-mono-sm text-label-mono-sm text-tertiary">TABULAR</span>
+<span class="material-symbols-outlined text-outline text-[18px]">grid_on</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">CSV Crudo Operativo</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Serie temporal completa, fases P y S registradas.</p>
+</div>
+<button class="w-full mt-2 py-space-xs px-space-sm rounded-lg bg-surface-container-highest hover:bg-tertiary hover:text-on-tertiary-container text-on-surface font-data-mono-md text-data-mono-md transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>.csv</span>
+</button>
+</div>
+<!-- MiniSEED -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-mono-sm text-label-mono-sm text-secondary">SEISMO-DATA</span>
+<span class="material-symbols-outlined text-outline text-[18px]">graphic_eq</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Paquete MiniSEED</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Formato estándar FDSN de formas de onda continuas.</p>
+</div>
+<button class="w-full mt-2 py-space-xs px-space-sm rounded-lg bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-on-surface font-data-mono-md text-data-mono-md transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>.mseed</span>
+</button>
+</div>
+<!-- Official PDF Bulletin -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-mono-sm text-label-mono-sm text-primary">AUDITORÍA</span>
+<span class="material-symbols-outlined text-outline text-[18px]">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Boletín Oficial PDF</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Firma digital, reporte formal para protección civil.</p>
+</div>
+<button class="w-full mt-2 py-space-xs px-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-headline-md tracking-normal transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Generar PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Audit Metadata & Signature Verification Card -->
+<div class="xl:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-outline tracking-wider">Bitácora Inmutable</span>
+<span class="inline-flex items-center gap-1 text-tertiary font-label-mono-sm text-label-mono-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> SYNC OK
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Validación & Hash de Seguridad</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Cada registro de evento es firmado por la red sismológica nacional para asegurar no-repudio y trazabilidad forense.
+          </p>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Última Auditoría:</span>
+<span class="font-data-mono-md text-on-surface">14:35:00 UTC</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Auditor en Turno:</span>
+<span class="text-primary font-data-mono-md">Dra. V. Morales</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Hash Bloque Activo:</span>
+<span class="font-data-mono-md text-on-surface truncate max-w-[140px]" title="0x7f8a9e2d14b622c71048b9ad">0x7f8a9e2d14b6...</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<button class="text-primary hover:underline font-label-mono-sm text-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Ver Certificado X.509</span>
+</button>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">REV: CENAPRED-2025-V2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Filter Interactive Toggle Logic
+  document.querySelectorAll('.filter-time-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-time-btn').forEach(b => {
+        b.classList.remove('bg-surface-container-high', 'text-primary');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-surface-container-high', 'text-primary');
+      btn.classList.remove('text-on-surface-variant');
+    });
+  });
+
+  document.querySelectorAll('.filter-mag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-mag-btn').forEach(b => {
+        b.classList.remove('bg-surface-container-high', 'text-on-surface');
+        b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+      btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+      btn.classList.add('bg-surface-container-high', 'text-on-surface');
+    });
+  });
+
+  // Simple live search filter in rows
+  const searchInput = document.getElementById('filter-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+</script></main></div></body></html>

@@ -1,8 +1,15 @@
+%% -*- mode: erlang -*-
+%% Sistema de ingesta y alertas sismicas (#56).
+%%
+%% Procesos registrados: el supervisor y un gen_server por "paso" del
+%% pipeline (fuentes -> ingesta -> dedupe -> clasificacion -> alertas);
+%% server general de salud del nodo.
 {application, p56_sismos, [
-  {description, "Sismos"},
-  {vsn, "0.1.0"},
-  {registered, [p56_sismos_sup, p56_sismos_server]},
+  {description, "Sismos: ingesta de eventos y alertas por magnitud"},
+  {vsn, "0.2.0"},
+  {registered, [p56_sismos_sup, p56_sismos_server, p56_fuentes,
+                p56_ingesta, p56_dedupe, p56_alertas]},
   {mod, {p56_sismos_app, []}},
-  {applications, [kernel, stdlib, cowboy, recon]},
+  {applications, [kernel, stdlib, cowboy, recon, prometheus]},
   {env, []}
 ]}.

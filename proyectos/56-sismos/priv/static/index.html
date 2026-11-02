@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0f1d">
+  <title>Centro de Control Sísmico · SISMOS</title>
+  <meta name="description" content="Monitoreo sísmico en tiempo real de Baja California: ingesta, deduplicación y alertas por magnitud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- ---------------------------------------------------------------- nav -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="2"></circle>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path>
+          <path d="M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">SISMOS</div>
+        <div class="brand-sub">Red sísmica · Baja California</div>
+      </div>
+    </div>
+
+    <div class="side-label">Navegación táctica</div>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="/" aria-current="page">
+        <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+        <span>Dashboard · tiempo real</span>
+      </a>
+      <a href="/proceso">
+        <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"></path></svg>
+        <span>Detalle de proceso</span>
+      </a>
+      <a href="/historial">
+        <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13"></path><circle cx="3.5" cy="6" r="1"></circle><circle cx="3.5" cy="12" r="1"></circle><circle cx="3.5" cy="18" r="1"></circle></svg>
+        <span>Historial y bitácora</span>
+      </a>
+    </nav>
+
+    <div class="side-block">
+      <div class="side-kv"><span class="k">Modo</span><span class="v">MONITOREO CONTINUO</span></div>
+      <div class="side-kv"><span class="k">Umbral</span><span class="v">M ≥ 4.5</span></div>
+      <div class="side-kv"><span class="k">Enlace</span><span class="v" id="side-enlace">WS / REST</span></div>
+      <div class="side-kv"><span class="k">Sitios</span><span class="v">4</span></div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-kv"><span class="k">Eventos</span><span class="v" id="side-eventos">0</span></div>
+      <div class="side-kv"><span class="k">Alertas</span><span class="v" id="side-alertas">0</span></div>
+      <div class="side-kv"><span class="k">Máx</span><span class="v" id="side-max">—</span></div>
+    </div>
+
+    <div class="side-foot">
+      <div class="pill-live"><span class="dot" style="color:#10b981"></span> p56_sismos · OTP 27</div>
+      <div class="tiny faint mono">cowboy · gen_statem · prometheus</div>
+    </div>
+  </aside>
+
+  <!-- ---------------------------------------------------------------- main -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Telemetría sísmica · Baja California</div>
+        <h1>Centro de Control Sísmico</h1>
+        <p class="page-sub">Ingesta continua de eventos, deduplicación por ventana espacio-temporal y despacho de alertas escalonadas.</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-pill" id="estado-live"><span class="dot"></span>conectando</div>
+        <div class="clock-box">
+          <div class="t mono" id="reloj">--:--:-- UTC</div>
+          <div class="d mono" id="fecha">----------</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Indicadores del sistema">
+      <div class="kpi" style="--accent:#38bdf8">
+        <div class="k"><span class="dot" style="color:#38bdf8"></span>Eventos recibidos</div>
+        <div class="v" id="kpi-eventos">—</div>
+        <div class="sub" id="kpi-eventos-sub">buffer vivo —</div>
+      </div>
+      <div class="kpi" style="--accent:#818cf8">
+        <div class="k"><span class="dot" style="color:#818cf8"></span>Sismos catalogados</div>
+        <div class="v" id="kpi-sismos">—</div>
+        <div class="sub" id="kpi-sismos-sub">revisiones —</div>
+      </div>
+      <div class="kpi" style="--accent:#10b981">
+        <div class="k"><span class="dot" style="color:#10b981"></span>Alertas emitidas</div>
+        <div class="v" id="kpi-alertas">—</div>
+        <div class="sub" id="kpi-alertas-sub">avisos —</div>
+      </div>
+      <div class="kpi" style="--accent:#ef4444">
+        <div class="k"><span class="dot" style="color:#ef4444"></span>Magnitud máxima</div>
+        <div class="v" id="kpi-max">—</div>
+        <div class="sub">escala de momento</div>
+      </div>
+      <div class="kpi" style="--accent:#f59e0b">
+        <div class="k"><span class="dot" style="color:#f59e0b"></span>Rechazados</div>
+        <div class="v" id="kpi-rechazados">—</div>
+        <div class="sub" id="kpi-uptime">uptime —</div>
+      </div>
+    </section>
+
+    <div class="grid-2">
+      <div class="stack">
+
+        <!-- Alerta principal -->
+        <section id="alerta" class="alert-card calm" aria-live="polite">
+          <div class="empty">esperando telemetría…</div>
+        </section>
+
+        <!-- Visor cartografico -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2Z"></path><path d="M9 3v16M15 5v16"></path></svg>
+              Visor tectónico · epicentros y sitios
+            </div>
+            <div class="panel-note" id="mapa-nota">—</div>
+          </div>
+          <div class="map-wrap">
+            <div class="map-tools">
+              <button class="icon-btn" type="button" id="mapa-refrescar" title="Actualizar epicentros" aria-label="Actualizar epicentros">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"></path><path d="M21 3v6h-6"></path></svg>
+              </button>
+            </div>
+            <svg viewBox="0 0 640 420" role="img" aria-label="Mapa esquemático de Baja California con epicentros">
+              <defs>
+                <pattern id="rejilla" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M40 0H0v40" fill="none" stroke="#141e31" stroke-width="1"></path>
+                </pattern>
+                <radialGradient id="brillo-epi" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ef4444" stop-opacity=".35"></stop>
+                  <stop offset="100%" stop-color="#ef4444" stop-opacity="0"></stop>
+                </radialGradient>
+              </defs>
+
+              <rect width="640" height="420" fill="#080d18"></rect>
+              <rect width="640" height="420" fill="url(#rejilla)"></rect>
+
+              <!-- peninsula de Baja California (esquema, no cartografia oficial) -->
+              <path d="M141 33 L148 49 L189 80 L253 176 L275 206 L434 352 L604 396
+                       L481 283 L360 139 L299 24 Z"
+                    fill="#0f1728" stroke="#334155" stroke-width="1.2"></path>
+
+              <!-- fallas activas -->
+              <g stroke="#f97316" stroke-opacity=".55" stroke-width="1.4" stroke-dasharray="5 4" fill="none">
+                <path d="M300 36 C 312 90, 320 150, 336 210"></path>
+                <path d="M372 96 C 356 132, 344 160, 330 190"></path>
+                <path d="M250 130 C 268 176, 280 214, 296 250"></path>
+              </g>
+
+              <!-- etiquetas -->
+              <text x="52" y="300" fill="#334155" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3">OCÉANO PACÍFICO</text>
+              <text x="430" y="140" fill="#334155" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3" transform="rotate(48 430 140)">GOLFO DE CALIFORNIA</text>
+              <text x="34" y="24" fill="#475569" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">32.9°N</text>
+              <text x="34" y="408" fill="#475569" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">27.2°N</text>
+
+              <g id="mapa-sitios"></g>
+              <g id="mapa-epicentros"></g>
+            </svg>
+          </div>
+          <div class="map-legend">
+            <span><i style="background:#10b981"></i>informativa</span>
+            <span><i style="background:#f59e0b"></i>media</span>
+            <span><i style="background:#f97316"></i>alta</span>
+            <span><i style="background:#ef4444"></i>crítica</span>
+            <span><i style="background:#334155;border:1px solid #64748b"></i>sitio de interés</span>
+            <span style="margin-left:auto;color:#64748b">tamaño ∝ magnitud</span>
+          </div>
+        </section>
+
+        <!-- Traza sismica -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l2-5 3 10 3-13 3 16 2-8h4"></path></svg>
+              Traza sísmica · componente vertical
+            </div>
+            <div class="panel-note" id="traza-nota">simulada · sin sismógrafo</div>
+          </div>
+          <div class="trace-wrap">
+            <svg viewBox="0 0 640 132" role="img" aria-label="Traza sísmica del último evento">
+              <g id="traza-ejes"></g>
+              <polyline id="traza-linea" fill="none" stroke="#38bdf8" stroke-width="1.4" points=""></polyline>
+              <line id="traza-p" x1="0" y1="0" x2="0" y2="132" stroke="#818cf8" stroke-width="1" stroke-dasharray="3 3"></line>
+              <line id="traza-s" x1="0" y1="0" x2="0" y2="132" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3"></line>
+              <text id="traza-p-txt" x="0" y="12" fill="#818cf8" font-family="JetBrains Mono, monospace" font-size="9">P</text>
+              <text id="traza-s-txt" x="0" y="12" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="9">S</text>
+            </svg>
+          </div>
+          <div class="panel-body" style="padding:10px 14px;display:flex;gap:16px;flex-wrap:wrap">
+            <span class="tiny mono dim">Δt P→S ≈ <span id="traza-dt">—</span></span>
+            <span class="tiny mono dim">amplitud <span id="traza-amp">—</span></span>
+            <span class="tiny mono dim" style="margin-left:auto">ventana 60 s</span>
+          </div>
+        </section>
+      </div>
+
+      <div class="stack">
+
+        <!-- Feed -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.6"></circle></svg>
+              Ingesta continua en vivo
+            </div>
+            <div class="panel-note" id="feed-nota">0 eventos</div>
+          </div>
+          <div class="panel-body" style="padding:10px 12px;border-bottom:1px solid var(--line)">
+            <div class="chips" id="feed-filtros" role="group" aria-label="Filtro de magnitud del feed">
+              <button class="chip" type="button" data-min="0" aria-pressed="true">Todos</button>
+              <button class="chip" type="button" data-min="3"><span class="dot" style="background:#10b981"></span>M ≥ 3.0</button>
+              <button class="chip" type="button" data-min="4.5"><span class="dot" style="background:#f97316"></span>M ≥ 4.5</button>
+              <button class="chip" type="button" data-min="6"><span class="dot" style="background:#ef4444"></span>M ≥ 6.0</button>
+            </div>
+          </div>
+          <div class="feed" id="feed" aria-live="polite">
+            <div class="empty">sin eventos todavía</div>
+          </div>
+        </section>
+
+        <!-- Triage -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
+              Triage por severidad
+            </div>
+            <div class="panel-note">bitácora</div>
+          </div>
+          <div class="panel-body">
+            <div class="triage" id="triage">
+              <div class="empty">—</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Fuentes -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 20v-6M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M4 20h16"></path></svg>
+              Fuentes de telemetría
+            </div>
+            <div class="panel-note" id="fuentes-nota">—</div>
+          </div>
+          <div class="panel-body" id="fuentes">
+            <div class="empty">—</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <h2 class="section-title">Estado del nodo <span class="mono">p56_sismos · BEAM</span></h2>
+    <section class="panel">
+      <div class="panel-body">
+        <div class="telemetry" id="nodo">
+          <div class="tel"><div class="k">Buffer</div><div class="v" id="n-buffer">—</div></div>
+          <div class="tel"><div class="k">Ticks</div><div class="v" id="n-ticks">—</div></div>
+          <div class="tel"><div class="k">Uptime</div><div class="v" id="n-uptime">—</div></div>
+          <div class="tel"><div class="k">Rechazos</div><div class="v" id="n-rechazos">—</div></div>
+          <div class="tel"><div class="k">Procesos</div><div class="v" id="n-procesos">—</div></div>
+          <div class="tel"><div class="k">Memoria</div><div class="v" id="n-memoria">—</div></div>
+          <div class="tel"><div class="k">Revisiones</div><div class="v" id="n-revisiones">—</div></div>
+          <div class="tel"><div class="k">Avisos</div><div class="v" id="n-avisos">—</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toasts" aria-live="polite" aria-atomic="false"></div>
+<script src="/js/app.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

@@ -35,6 +35,15 @@
 
 -define(FUENTES, [<<"usgs">>, <<"csn">>, <<"redlocal">>]).
 
+%% Limites fisicos para que el simulador no se desboque: la mayor
+%% magnitud plausible en el Golfo de California es ~7.2 (El Mayor-
+%% Cucapah fue Mw 7.2); con margen, 8.2 cubre hasta un mega-terremoto
+%% plausiblemente reportado con error temprano. Y ninguna red reporta
+%% correcciones infinitas: techo de revisiones por evento.
+-define(MAG_MAX, 8.2).
+-define(MAG_MIN, 1.0).
+-define(REV_MAX, 6).
+
 tasa_ms() ->
   application:get_env(p56_sismos, fuentes_tasa_ms, 2500).
 
@@ -83,14 +92,21 @@ evento_base(Seed, Epoch, Contador) ->
     lat      => Lat + jitter(Seed),
     lon      => Lon + jitter(Seed),
     t        => Epoch + (abs(Seed) rem 3) - 1,
-    lugar    => unicode:characters_to_binary(Nombre)
+    lugar    => unicode:characters_to_binary(Nombre),
+    revs     => 0
   }.
 
 %% Revision del mismo reporte: cambia la magnitud con la correccion
-%% tipica del problema (hasta +/-0.3) y conserva la identidad.
+%% tipica del problema (hasta +/-0.3) y conserva la identidad. La
+%% magnitud queda acotada a [?MAG_MIN, ?MAG_MAX] (fisica) y se cuenta
+%% cuantas revisiones lleva el evento (revs), para que las redes no
+%% revisen un mismo reporte mas de ?REV_MAX veces.
 revision_de(Ev, Delta, Epoch) ->
   Mag = maps:get(mag, Ev, 3.0),
-  Ev#{mag := round1(Mag + Delta), t := Epoch}.
+  Mag2 = max(?MAG_MIN, min(?MAG_MAX, round1(Mag + Delta))),
+  Ev#{mag := Mag2,
+      t := Epoch,
+      revs := maps:get(revs, Ev, 0) + 1}.
 
 %% Duplicado: la red reenvia el mismo reporte sin cambios.
 duplicado(Ev) ->
@@ -173,9 +189,11 @@ handle_info(tick, Estado = #{tick := T, cont := C,
       false -> Lote1
     end,
 
-  %% Revision del ultimo evento, cada ~9 ticks, correccion tipica
+  %% Revision del ultimo evento, cada ~9 ticks, correccion tipica;
+  %% sin pasarse del tope de revisiones (las redes no corrigen eterno).
   Lote3 =
-    case Ultimo =/= none andalso T rem 9 =:= 5 of
+    case Ultimo =/= none andalso T rem 9 =:= 5
+         andalso maps:get(revs, Ultimo, 0) < ?REV_MAX of
       true ->
         Delta = case Az3 rem 2 of 0 -> 0.3; _ -> -0.2 end,
         [revision_de(Ultimo, Delta, Epoch) | Lote2];
@@ -252,10 +270,14 @@ burst_modo(revision, Estado) ->
   case maps:get(ultimo, Estado, none) of
     none -> Estado;
     Ultimo ->
-      Delta = case rand:uniform(2) of 1 -> 0.35; _ -> -0.15 end,
-      Rev = revision_de(Ultimo, Delta, os:system_time(second)),
-      enviar_lote([Rev]),
-      Estado#{ultimo := Rev}
+      case maps:get(revs, Ultimo, 0) < ?REV_MAX of
+        true ->
+          Delta = case rand:uniform(2) of 1 -> 0.35; _ -> -0.15 end,
+          Rev = revision_de(Ultimo, Delta, os:system_time(second)),
+          enviar_lote([Rev]),
+          Estado#{ultimo := Rev};
+        false -> Estado
+      end
   end;
 burst_modo(atraso, Estado) ->
   Ev = atrasado(rand:uniform(1000), os:system_time(second)),

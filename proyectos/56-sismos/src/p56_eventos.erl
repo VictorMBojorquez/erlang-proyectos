@@ -47,7 +47,7 @@ map_valido(C) ->
 obligatorio_mag(C) ->
   case comes(C, mag, nada) of
     nada  -> throw({evento, <<"falta magnitud">>});
-    M     -> rango(num(M), -2.0, 12.0, <<"magnitud fuera de rango">>)
+    M     -> rango(num(M), -1.0, 9.5, <<"magnitud fuera de rango">>)
   end.
 
 obligatorio_lat(C) ->

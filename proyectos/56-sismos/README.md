@@ -158,4 +158,9 @@ el supervisor lo reinicia y el proceso vuelve a responder.
 - [x] 3 pantallas UI servidas y verificadas headless
 - [x] Release generado y arrancado
 - [x] Prueba de caos
-- [ ] Capturas finales de la app real (pantallas tomadas con Chrome headless en los últimos datos simulados) — en `capturas/`
+- [x] Mejoras de demo: botón "Detonar sismo crítico", chips de escenarios y
+      formulario de sismo manual en `/` y `/proceso` (solo frontend + API existente)
+- [x] Fix de plausibilidad física: magnitud del simulador acotada a
+      [1.0, 8.2] con tope de revisiones por evento (`p56_fuentes`); rango de
+      validación [−1.0, 9.5] en `p56_eventos`
+- [x] Capturas finales de la app real en `capturas/`

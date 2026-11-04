@@ -282,5 +282,122 @@
     return marcas;
   };
 
+  /* ---------------------------------------------------------------- demo */
+
+  /* POST JSON generico para las acciones del demo (api/eventos y
+     api/simular); devuelve el cuerpo o lanza Error con el detalle. */
+  App.postJson = function (ruta, cuerpo) {
+    return fetch(ruta, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(cuerpo)
+    }).then(function (resp) {
+      if (!resp.ok) throw new Error("HTTP " + resp.status + " en " + ruta);
+      return resp.json();
+    });
+  };
+
+  /* Inyecta un evento directamente en la API; el nivel y el aviso se
+     calculan en el backend (p56_niveles) con la misma logica del flujo
+     simulado, asi que el resultado es identico a un evento real. */
+  App.inyectarEvento = async function (cuerpo) {
+    const t = Math.floor(Date.now() / 1000);
+    return App.postJson("/api/eventos", Object.assign({
+      source: "demo",
+      source_id: "demo-" + t,
+      t: t
+    }, cuerpo));
+  };
+
+  /* Detona un M6.5 a ~25 km de Mexicali / Campus ITT: nivel critico
+     garantizado (M >= 5.5), aparece toast + flash en el dashboard. */
+  App.demoDetonar = async function (boton) {
+    if (boton) boton.disabled = true;
+    try {
+      await App.inyectarEvento({
+        mag: 6.5, lat: 32.52, lon: -115.44, lugar: "Mexicali (demo)"
+      });
+      App.toast("Sismo crítico inyectado", "M 6.5 en Mexicali · mantente atento al toast de alerta crítica", "info");
+    } catch (e) {
+      App.toast("No se pudo detonar", String(e.message || e));
+    }finally {
+      if (boton) setTimeout(function () { boton.disabled = false; }, 1200);
+    }
+  };
+
+  /* Lanza uno de los escenarios del simulador (POST /api/simular). */
+  App.demoEscenario = async function (modo, boton) {
+    if (boton) boton.disabled = true;
+    try {
+      await App.postJson("/api/simular", { modo: modo });
+      App.toast("Escenario lanzado: " + modo,
+        "los eventos entran al pipeline en los próximos segundos", "info");
+    } catch (e) {
+      App.toast("No se pudo lanzar " + modo, String(e.message || e));
+    } finally {
+      if (boton) setTimeout(function () { boton.disabled = false; }, 1200);
+    }
+  };
+
+  /* Formulario de sismo manual: lee los #m-... dentro del form. */
+  App.demoManual = async function (form) {
+    const get = function (id) { return form.querySelector("#" + id); };
+    const mag = parseFloat(get("m-mag").value);
+    const lat = parseFloat(get("m-lat").value);
+    const lon = parseFloat(get("m-lon").value);
+    const lugar = (get("m-lugar").value || "").trim() || "Lugar sin nombre";
+
+    if (isNaN(mag) || mag < 1 || mag > 9.5) {
+      App.toast("Magnitud inválida", "debe estar entre 1.0 y 9.5");
+      return;
+    }
+    if (isNaN(lat) || isNaN(lon)) {
+      App.toast("Coordenadas inválidas", "lat y lon deben ser números");
+      return;
+    }
+
+    const boton = form.querySelector("button[type=submit]");
+    if (boton) boton.disabled = true;
+    try {
+      await App.inyectarEvento({ mag: mag, lat: lat, lon: lon, lugar: lugar });
+      App.toast("Evento inyectado", "M " + mag.toFixed(1) + " en " + lugar + " · visible en segundos", "info");
+      form.reset();
+      form.classList.remove("open");
+    } catch (e) {
+      App.toast("No se pudo inyectar", String(e.message || e));
+    } finally {
+      if (boton) setTimeout(function () { boton.disabled = false; }, 1200);
+    }
+  };
+
+  /* Conecta los controles del demo a los ids estandar del HTML.
+     Todos los ids son opcionales: solo se conectan si existen. */
+  App.demoBind = function (opciones) {
+    const o = opciones || {};
+    const porId = function (id) { return document.getElementById(id); };
+
+    const detonar = porId(o.idDetonar || "btn-critico");
+    if (detonar) detonar.addEventListener("click", function () {
+      App.demoDetonar(detonar);
+    });
+
+    const escenarios = porId(o.idEscenarios || "demo-escenarios");
+    if (escenarios) escenarios.addEventListener("click", function (ev) {
+      const chip = ev.target.closest(".chip");
+      if (!chip) return;
+      App.demoEscenario(chip.getAttribute("data-modo") || chip.dataset.modo, chip);
+    });
+
+    const abrir = porId(o.idAbrir || "btn-manual");
+    const form = porId(o.idForma || "form-manual");
+    if (abrir && form) {
+      abrir.addEventListener("click", function () { form.classList.toggle("open"); });
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        App.demoManual(form);
+      });
+    }
+  };
+
   window.App = App;
 })();

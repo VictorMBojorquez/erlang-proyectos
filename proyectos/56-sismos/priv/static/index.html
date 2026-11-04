@@ -82,6 +82,26 @@
       </div>
     </header>
 
+    <!-- Controles de demo -->
+    <section class="demo-bar" aria-label="Controles de demostración">
+      <button class="btn detonar" id="btn-critico" type="button">⚠ Detonar sismo crítico</button>
+      <span class="demo-label">Escenarios</span>
+      <div class="chips" id="demo-escenarios" role="group" aria-label="Escenarios del simulador">
+        <button class="chip" type="button" data-modo="enjambre">Enjambre</button>
+        <button class="chip" type="button" data-modo="revision">Revisión</button>
+        <button class="chip" type="button" data-modo="atraso">Retraso</button>
+        <button class="chip" type="button" data-modo="caida">Caída de fuente</button>
+      </div>
+      <button class="btn ghost" id="btn-manual" type="button">Sismo manual</button>
+      <form class="demo-form" id="form-manual" autocomplete="off">
+        <label>Magnitud<input type="number" id="m-mag" step="0.1" min="1" max="9.5" value="4.8"></label>
+        <label>Latitud<input type="number" id="m-lat" step="0.01" value="32.52"></label>
+        <label>Longitud<input type="number" id="m-lon" step="0.01" value="-115.44"></label>
+        <label>Lugar<input type="text" id="m-lugar" value="Mexicali" maxlength="40" style="width:170px"></label>
+        <button class="btn primary" type="submit">Inyectar evento</button>
+      </form>
+    </section>
+
     <!-- KPIs -->
     <section class="kpis" aria-label="Indicadores del sistema">
       <div class="kpi" style="--accent:#38bdf8">

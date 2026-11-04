@@ -239,6 +239,9 @@
   function init() {
     A.reloj($("reloj"), $("fecha"));
 
+    /* Controles de demo compartidos (detonar / escenarios / manual). */
+    A.demoBind();
+
     $("escenarios").addEventListener("click", function (ev) {
       const boton = ev.target.closest(".chip");
       if (!boton) return;

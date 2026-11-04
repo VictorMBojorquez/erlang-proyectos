@@ -309,6 +309,9 @@
   function init() {
     A.reloj($("reloj"), $("fecha"));
 
+    /* Controles de demo: detonar, escenarios y sismo manual. */
+    A.demoBind();
+
     $("feed-filtros").addEventListener("click", function (ev) {
       const boton = ev.target.closest(".chip");
       if (!boton) return;
